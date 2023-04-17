@@ -1,12 +1,26 @@
-<div id="form">
+<script>
+  import { createEventDispatcher } from 'svelte';
+  const dispatch = createEventDispatcher();
+  
+  function queryInput(e) {
+    const formData = new FormData(e.target)
+    const data = {}
+    for (let field of formData) {
+      const [key,value] = field;
+      data[key] = value;
+    }
+    dispatch('querySubmit',{'data': data['query']});
+  }
+</script>
+
+<form id="form" on:submit|preventDefault="{queryInput}">
   <input
+    name="query"
     id="query"
     placeholder="Type your message here"
-    rows="1"
-    contenteditable
   />
-  <button id="send" class="bi bi-send-fill"></button>
-</div>
+  <button type="submit" id="send"><i class="bi bi-send-fill"></i></button>
+</form>
 
 <style>
   /* A cellphone on the smaller side is 640px x 360px */
@@ -36,6 +50,10 @@
     font-size: 1.5em;
     border: 0;
     background: 0;
+    cursor: pointer;
+  }
 
+  #send:hover {
+    background: white;
   }
 </style>
