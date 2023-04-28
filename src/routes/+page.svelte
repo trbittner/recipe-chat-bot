@@ -5,11 +5,14 @@
   function handleQuery(event) {
     console.log(event.detail.data);
   }
-  
 </script>
 
 <h1>Hello Sveltekit</h1>
 <p>This is a dead simple sveltekit template.</p>
 
 <BouncingDots />
-<QueryBox on:querySubmit="{handleQuery}"/>
+<QueryBox on:querySubmit={handleQuery} />
+<form method="POST">
+  <h1>Test</h1>
+  <input name="description" />
+</form>
