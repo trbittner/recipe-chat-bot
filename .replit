@@ -1,6 +1,6 @@
-run = "npm run dev"
+run = ["sh","-c","rm -rf build/ && npm run build && node build/index.js"]
 
-hidden = [".gitignore",".config",".svelte-kit","package-lock.json"]
+hidden = [".gitignore",".config",".svelte-kit","package-lock.json","node_modules",".upm",".npmrc"]
 
 [nix]
 channel = "stable-21_11"
