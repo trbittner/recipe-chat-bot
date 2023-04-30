@@ -1,13 +1,15 @@
-<input
-  name="query"
-  id="query"
-  placeholder="Type your message here"
-/>
-<button type="submit" id="send"><i class="bi bi-send-fill"></i></button>
+<div id="querybox">
+  <input
+    name="query"
+    id="query"
+    placeholder="Type your message here"
+  />
+  <button type="submit" id="send"><i class="bi bi-send-fill"></i></button>
+</div>
 
 <style>
   /* A cellphone on the smaller side is 640px x 360px */
-  #form {
+  #querybox {
     width: 360px;
     display: flex;
     align-items: center;
