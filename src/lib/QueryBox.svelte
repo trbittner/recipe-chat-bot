@@ -1,15 +1,27 @@
-<div id="querybox">
+<script>
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher();
+
+  export let queryInput = "";
+
+  function sendQuery() {dispatch("sendQuery");}
+</script>
+
+<div class="queryBox">
   <input
-    name="query"
-    id="query"
+    class="queryInput"
+    bind:value={queryInput}
     placeholder="Type your message here"
   />
-  <button type="submit" id="send"><i class="bi bi-send-fill"></i></button>
+  <button on:click={sendQuery} class="send">
+    <i class="bi bi-send-fill" />
+  </button>
 </div>
 
 <style>
   /* A cellphone on the smaller side is 640px x 360px */
-  #querybox {
+  .queryBox {
     width: 360px;
     display: flex;
     align-items: center;
@@ -18,7 +30,7 @@
     background: hsla(231, 10%, 90%, 0.8);
   }
 
-  #query {
+  .queryInput {
     padding: 5px;
     font-size: 1em;
     background: rgba(0, 0, 0, 0.15);
@@ -31,14 +43,14 @@
     flex-basis: 90%;
   }
 
-  #send {
+  .send {
     font-size: 1.5em;
     border: 0;
     background: 0;
     cursor: pointer;
   }
 
-  #send:hover {
+  .send:hover {
     background: white;
   }
 </style>
