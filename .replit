@@ -1,4 +1,4 @@
-run = ["sh","-c","rm -rf build/ && npm run build && node build/index.js"]
+run = ["sh","-c","npm run dev"]
 
 hidden = [".gitignore",".config",".svelte-kit","package-lock.json","node_modules",".upm",".npmrc"]
 

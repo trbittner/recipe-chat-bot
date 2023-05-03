@@ -5,7 +5,7 @@
   let query = '';
 
   function handleQuery(event) {
-    alert(query);
+    fetch 
   }
 </script>
 

@@ -1,0 +1,13 @@
+'recipes': {
+  'palak-paneer': {
+    'title': 'Palak Paneer',
+    'ingredients': ['10 oz. frozen spinach'],
+    categories: ['vegetarian','Indian'],
+  },
+
+  'kale-and-gruyere-pizza': {
+    'title': 'Kale and Gruyere Pizza',
+    'ingredients': ['1 bunch kale','Mozzarella','Gruyere'],
+    'categories': ['vegetarian','pizza'],
+  }
+}

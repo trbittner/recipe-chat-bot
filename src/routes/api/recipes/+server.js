@@ -1,4 +1,7 @@
-export const GET = () => {
-  return new Response('Welcome to the recipe API')
-};
+import { json } from '@sveltejs/kit';
 
+export const GET = () => {
+  const recipe = 'chicken';
+
+  return json(recipe);
+};
