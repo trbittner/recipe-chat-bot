@@ -17,3 +17,5 @@ can't find the appropriate origin and destination.  However, I can get
 around this with the node adapter for sveltekit.  Depending on my patience
 I may try and tinker with the vite issue more in the future (though I've
 already spent 4-6 hours on it already).
+* [This](https://www.stefanjudis.com/today-i-learned/prevent-npm-install-for-not-supported-node-js-versions/) helped me understand how to start installing packages and removing them across node version mismatches.
+  
