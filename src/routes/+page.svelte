@@ -4,9 +4,12 @@
 
   let query = '';
 
-  function handleQuery(event) {
-    fetch 
+  function handleQuery() {
+  
   }
+
+  export let data;
+  console.log(data.idx.search("mozzarella"))
 </script>
 
 <h1>Hello Sveltekit</h1>

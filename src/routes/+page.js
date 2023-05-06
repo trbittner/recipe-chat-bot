@@ -1,7 +1,7 @@
 import lunr from "lunr";
 import recipeObj from '$lib/data/recipes.json';
 
-export function load({ params }) {
+export function load() {
   let idx = lunr(function() {
     this.ref('name');
     this.field('title');
@@ -13,5 +13,5 @@ export function load({ params }) {
     },this)
   })
 
-  console.log(idx.search("mozzarella"))
+  return {idx};
 }
