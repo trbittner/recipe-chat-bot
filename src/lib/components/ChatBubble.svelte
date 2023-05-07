@@ -1,9 +1,14 @@
 <script>
+  import { fly } from "svelte/transition";
   export let speaker;
   export let text;
+
+  let x_val;
+  x_val = speaker === 'bot' ? -50 : 50;
 </script>
 
-<div class="chatbot-bubble {speaker}">{text}</div>
+<div class="chatbot-bubble {speaker}"
+  in:fly="{{x: x_val, duration: 500}}">{text}</div>
 
 <style>
   .chatbot-bubble {

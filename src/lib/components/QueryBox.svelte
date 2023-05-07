@@ -22,7 +22,7 @@
 <style>
   /* A cellphone on the smaller side is 640px x 360px */
   .queryBox {
-    width: 360px;
+    min-width: 360px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
