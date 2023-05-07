@@ -1,8 +1,6 @@
 <script>
   import BouncingDots from "$lib/components/BouncingDots.svelte";
-  import QueryBox from "$lib/components/QueryBox.svelte";
-  import ChatBubble from "$lib/components/ChatBubble.svelte";
-import ChatCanvas from "../lib/components/ChatCanvas.svelte";
+  import ChatCanvas from "../lib/components/ChatCanvas.svelte";
 
   let query = '';
 
@@ -13,13 +11,12 @@ import ChatCanvas from "../lib/components/ChatCanvas.svelte";
   export let data;
 </script>
 
-<h1>Hello Sveltekit</h1>
+<h1>Hello RecipeBot</h1>
 
 <div class='container'>
   <ChatCanvas />
 </div>
 <BouncingDots />
-<QueryBox bind:queryInput={query} on:sendQuery={handleQuery}/>
 
 <style>
   .container {
