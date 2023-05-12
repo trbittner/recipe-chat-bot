@@ -18,19 +18,19 @@
     font-size: 16px;
     line-height: 1.5;
     display: inline-block;
+    width: fit-content;
   }
 
   .chatbot-bubble.user {
     background-color: #007bff;
     color: #fff;
-    float: right;
+    margin-left: auto;
     margin-bottom: 10px;
   }
 
   .chatbot-bubble.bot {
     background-color: yellow;
     color: #000;
-    float: left;
     margin-bottom: 10px;
   }
 </style>

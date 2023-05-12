@@ -13,7 +13,6 @@
               'text':'Hello! What can I help you cook tonight?'};
     let help = {'speaker':'bot',
                'text':"You can type 'all recipes' to browse them directly."}
-    let test = {'speaker':'bot','text':'overflow'}
     chats = [...chats,welcome,help]
   });
 
