@@ -18,4 +18,6 @@ around this with the node adapter for sveltekit.  Depending on my patience
 I may try and tinker with the vite issue more in the future (though I've
 already spent 4-6 hours on it already).
 * [This](https://www.stefanjudis.com/today-i-learned/prevent-npm-install-for-not-supported-node-js-versions/) helped me understand how to start installing packages and removing them across node version mismatches.
+* [This](https://svelte.dev/repl/149d2f3766e9425f8fe39207cad5ac13?version=3.31.0) may solve my input problems.
+  * Actually I didn't need it, because I had an error blocking the input update, which masked the bug I was trying to fix.  Turns out the component binding worked as expected the first time out.
   

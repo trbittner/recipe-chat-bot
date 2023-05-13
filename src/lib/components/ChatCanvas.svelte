@@ -4,7 +4,7 @@
   import ChatBubble from "$lib/components/ChatBubble.svelte";
   import QueryBox from "$lib/components/QueryBox.svelte";
 
-  let query = 'bar';
+  let query='';
   let chats = [];
   export let data;
 
@@ -23,8 +23,10 @@
   function handleQuery() {
     if (query.trim() !== "") {
       chats = [...chats, { speaker: "user", text: query }];
-      response = data.idx.search(query);
-    }
+      let response = data.idx.search(query);
+      console.log(response);
+      query = '';
+    };
   }
 </script>
 
@@ -34,7 +36,7 @@
       <ChatBubble speaker={chat.speaker} text={chat.text} />
     {/each}
   </div>
-  <div class="queryBox">
+  <div class="queryContainer">
     <QueryBox bind:queryInput={query} on:sendQuery={handleQuery} />
   </div>
 </div>
@@ -58,14 +60,14 @@
     margin-bottom: 0.25em;
   }
 
-  .queryBox {
+  .queryContainer {
     flex: 10%;
     width: 100%;
     margin: auto;
   }
 
   @media screen and (min-width: 768px) {
-    .queryBox {
+    .queryContainer {
       width: 450px;
     }
   }

@@ -11,8 +11,6 @@
 </script>
 
 <div class="queryBox">
-  <p>Query:{queryInput}</p>
-  
   <input
     class="queryInput"
     bind:value={queryInput}
