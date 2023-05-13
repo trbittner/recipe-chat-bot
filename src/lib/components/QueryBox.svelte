@@ -5,10 +5,14 @@
 
   export let queryInput = "";
 
-  function sendQuery() {dispatch("sendQuery");}
+  function sendQuery() {
+    dispatch("sendQuery");
+  }
 </script>
 
 <div class="queryBox">
+  <p>Query:{queryInput}</p>
+  
   <input
     class="queryInput"
     bind:value={queryInput}
