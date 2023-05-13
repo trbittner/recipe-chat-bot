@@ -35,7 +35,6 @@
     padding: 5px;
     font-size: 1em;
     background: rgba(0, 0, 0, 0.15);
-    color: rgba(0, 0, 0, 0.45);
     min-height: 1.5em;
     max-height: 10vh;
     font-style: italic;

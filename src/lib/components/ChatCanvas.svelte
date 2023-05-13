@@ -1,5 +1,5 @@
 <script>
-  import { onMount,tick } from "svelte";
+  import { onMount } from "svelte";
 
   import ChatBubble from "$lib/components/ChatBubble.svelte";
   import QueryBox from "$lib/components/QueryBox.svelte";
@@ -8,25 +8,35 @@
   let chats = [];
   export let data;
 
-  onMount(() => {
-    let welcome = {
+  const openingText = [
+    {
       speaker: "bot",
       text: "Hello! What can I help you cook tonight?",
-    };
-    let help = {
+    },
+    {
       speaker: "bot",
       text: "You can type 'all recipes' to browse them directly.",
-    };
-    chats = [...chats, welcome, help];
+    },    
+  ];
+
+  const emptyText = {
+    speaker: "bot",
+    text: "I'm sorry you entered an empty query.  Please try again."
+  }
+
+  onMount(() => {
+    chats = [...chats, ...openingText];
   });
 
   function handleQuery() {
-    if (query.trim() !== "") {
+    if (query.trim() === "") {
+      chats = [...chats,emptyText]
+    } else {
       chats = [...chats, { speaker: "user", text: query }];
       let response = data.idx.search(query);
       console.log(response);
-      query = '';
     };
+    query = '';
   }
 </script>
 
