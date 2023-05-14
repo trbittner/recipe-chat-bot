@@ -1,14 +1,10 @@
-export async function load({ params }) {
-  const recipe = await import(`../${params.slug}.md`);
-  const { name, description, servings, 
-         ingredients, instructions, tags} = recipe.metadata;
+import recipeObj from '$lib/data/recipes.json';
 
-  return {
-    name,
-    description,
-    servings,
-    ingredients,
-    instructions,
-    tags,
+export function load({ params }) {
+  console.log(params.slug)
+  for (let i = 0; i < recipeObj.data.length; i++) {
+    if (recipeObj.data[i].id === params.slug) {
+      return recipeObj.data[i];
+    }
   }
 }

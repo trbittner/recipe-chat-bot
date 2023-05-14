@@ -4,3 +4,4 @@
 
 name: {data.name}
 description: {data.description}
+ingredients: {data.ingredients}

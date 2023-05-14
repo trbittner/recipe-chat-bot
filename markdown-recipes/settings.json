@@ -1,0 +1,6 @@
+{
+  "filePattern": "*.md",
+  "dist": "../src/lib/data/recipes.json",
+  "metadata": false,
+  "deterministic-order": true
+}
