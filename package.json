@@ -16,6 +16,7 @@
   "type": "module",
   "dependencies": {
     "lunr": "^2.3.9",
+    "mdsvex": "^0.10.6",
     "node": "^20.1.0"
   }
 }
