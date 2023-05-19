@@ -4,6 +4,8 @@
   import ChatBubble from "$lib/components/ChatBubble.svelte";
   import QueryBox from "$lib/components/QueryBox.svelte";
 
+  import recipeObj from '$lib/data/recipes.json';
+
   let query='';
   let chats = [];
   export let data;
@@ -11,7 +13,7 @@
   const openingText = [
     {
       speaker: "bot",
-      text: "Hello! What can I help you cook tonight?",
+      text: "Hello! What can I help you cook today?",
     },
     {
       speaker: "bot",
@@ -24,18 +26,50 @@
     text: "I'm sorry you entered an empty query.  Please try again."
   }
 
+  const noResult = {
+    speaker: "bot",
+    text: "I'm sorry.  I couldn't find anything."
+  }
+
   onMount(() => {
     chats = [...chats, ...openingText];
   });
+
+  function getRecipeLinks(query) {
+    let response = data.idx.search(query);
+    let linkResults = []
+    response.forEach(function (result) {
+      for (let recipe of recipeObj.data) {
+        if (recipe.id === result.ref) {
+          linkResults = [...linkResults,{id:recipe.id,name:recipe.name}]
+        }
+      }
+    });
+    return linkResults;
+  }
+
+  function constructSearchResult(linkResults) {
+    let searchResult;
+    if (linkResults.length > 0) {
+      searchResult = {
+        speaker: "bot",
+        links: linkResults,
+      };
+    } else {
+      searchResult = noResult;
+    }
+    return searchResult;
+  }
 
   function handleQuery() {
     if (query.trim() === "") {
       chats = [...chats,emptyText]
     } else {
       chats = [...chats, { speaker: "user", text: query }];
-      let response = data.idx.search(query);
-      console.log(response);
-    };
+      let linkResults = getRecipeLinks(query);
+      let searchResult = constructSearchResult(linkResults);
+      chats = [...chats,searchResult];
+    }
     query = '';
   }
 </script>
@@ -43,7 +77,7 @@
 <div class="canvas">
   <div class="chatSpace">
     {#each chats as chat}
-      <ChatBubble speaker={chat.speaker} text={chat.text} />
+      <ChatBubble speaker={chat.speaker} text={chat.text} links={chat.links} />
     {/each}
   </div>
   <div class="queryContainer">

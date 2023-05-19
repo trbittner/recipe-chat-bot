@@ -2,13 +2,22 @@
   import { fly } from "svelte/transition";
   export let speaker;
   export let text;
+  export let links = [];
 
   let x_val;
   x_val = speaker === 'bot' ? -50 : 50;
 </script>
 
 <div class="chatbot-bubble {speaker}"
-  in:fly="{{x: x_val, duration: 500}}">{text}</div>
+  in:fly="{{x: x_val, duration: 500}}">
+  {#if links && links.length}
+    {#each links as link}
+      <div><a href='/recipes/{ link.id }'>{ link.name }</a></div>
+    {/each}
+  {:else}
+    {text}
+  {/if}
+</div>
 
 <style>
   .chatbot-bubble {
