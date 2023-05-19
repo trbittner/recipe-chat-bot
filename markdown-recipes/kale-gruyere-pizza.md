@@ -1,6 +1,6 @@
 ---
 name: Kale and Gruyere Pizza
-description: This is simple pizza with more complexity in flavor than ingredient profile shows.
+description: This is simple pizza with more complexity in flavor than the ingredient profile shows.
 servings: Serves 2-3
 ingredients:
     - 1 small-medium bunch of kale, rinsed
@@ -13,7 +13,7 @@ ingredients:
     - 1 serving basic dough
 instructions:
     - Preheat oven to 450
-    - '"Wash" the kale in a bowl using 1/2 tsp of salt'
+    - 'Wash' the kale in a bowl using 1/2 tsp of salt'
     - Roll out the dough.  Using a fork, poke holes in the dough to prevent it from puffing during cooking
     - Brush 2 tbsp of olive oil on to the dough.  Sprinkle the garlic evenly and top with gruyere.
     - Bake the crust for 2 minutes
