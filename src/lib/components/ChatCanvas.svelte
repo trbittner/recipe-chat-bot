@@ -1,13 +1,15 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, afterUpdate } from "svelte";
 
   import ChatBubble from "$lib/components/ChatBubble.svelte";
   import QueryBox from "$lib/components/QueryBox.svelte";
 
   import recipeObj from '$lib/data/recipes.json';
 
-  let query='';
   let chats = [];
+  let query='';
+  let element;
+  
   export let data;
 
   const openingText = [
@@ -31,22 +33,13 @@
     text: "I'm sorry.  I couldn't find anything."
   }
 
+  afterUpdate(() => {
+    element.scrollTop = element.scrollHeight;
+  });
+
   onMount(() => {
     chats = [...chats, ...openingText];
   });
-
-  function getRecipeLinks(query) {
-    let response = data.idx.search(query);
-    let linkResults = []
-    response.forEach(function (result) {
-      for (let recipe of recipeObj.data) {
-        if (recipe.id === result.ref) {
-          linkResults = [...linkResults,{id:recipe.id,name:recipe.name}]
-        }
-      }
-    });
-    return linkResults;
-  }
 
   function constructSearchResult(linkResults) {
     let searchResult;
@@ -59,6 +52,19 @@
       searchResult = noResult;
     }
     return searchResult;
+  }
+
+  function getRecipeLinks(query) {
+    let response = data.idx.search(query);
+    let linkResults = []
+    response.forEach(function (result) {
+      for (let recipe of recipeObj.data) {
+        if (recipe.id === result.ref) {
+          linkResults = [...linkResults,{id:recipe.id,name:recipe.name}]
+        }
+      }
+    });
+    return linkResults;
   }
 
   function handleQuery() {
@@ -75,7 +81,7 @@
 </script>
 
 <div class="canvas">
-  <div class="chatSpace">
+  <div class="chatSpace" bind:this={element}>
     {#each chats as chat}
       <ChatBubble speaker={chat.speaker} text={chat.text} links={chat.links} />
     {/each}
