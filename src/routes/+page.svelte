@@ -5,30 +5,41 @@
   export let data;
 </script>
 
-<header>
-  <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Recipes</a></li>
-      <li><a href="#">Categories</a></li>
-      <li><a href="#">About Us</a></li>      
-    </ul>
-  </nav>
-</header>
+<div class="main-grid">
+  <div class="left-rail"></div>
+  <div class="main-content">
+    <main>
+      <section class="hero">
+        <div class="hero-image"></div>
+      </section>
+        
+      <section>
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Recipes</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">About Us</a></li>      
+          </ul>
+        </nav>  
+      </section>
+    </main>
 
-<main>
-  <section class="hero">
-    <div class="hero-image"></div>
-  </section>
-</main>
-
-<div class='container'>
-  <ChatCanvas data={data} />
+    <div class='container'>
+      <ChatCanvas data={data} />
+    </div>
+    <BouncingDots />
+  </div>
+  <div class="right-rail"></div>
 </div>
-<BouncingDots />
 
 <style>
   @import url('https://fonts.googleapis.com/css?family=Mallanna');
+
+  .main-grid {
+    display: grid;
+    grid-template-columns: auto 800px auto;
+  }
   
   .container {
     display: flex;
@@ -37,9 +48,9 @@
 
   .hero-image {
     background-image: url('/images/todds-bistro-logo.png');
-    background-size: cover;
+    background-size: cover; 
     background-position: center;
-    height: 400px;
+    height: 300px;
     position: relative;
   }
 
@@ -49,7 +60,7 @@
     border-top: 5px solid;
     border-bottom: 5px solid;
     background-color: #fbeaab;
-    margin: 5px;
+    margin: 5px 0px;
   }
 
   nav a {

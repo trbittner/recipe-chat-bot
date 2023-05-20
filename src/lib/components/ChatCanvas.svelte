@@ -97,8 +97,7 @@
     flex-direction: column;
     padding: 0.5em;
     background-color: darkslategray;
-    height: 75vh;
-    width: 75vw;
+    display: none;
     border-radius: 0.5em;
   }
 
