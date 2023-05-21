@@ -17,5 +17,7 @@ export async function load() {
       });
     },this)
   })
-  return {idx};
+
+  const randomRecipe = Math.floor(Math.random() * recipeObj.data.length)
+  return {"idx":idx,"randomRecipe":recipeObj.data[randomRecipe]};
 }

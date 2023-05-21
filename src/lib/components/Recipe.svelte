@@ -28,7 +28,7 @@
     border-radius: 10px;
     font-family: 'Montserrat', sans-serif;
     box-shadow: 0 2px 5px rgba(0,0,0,0.85);
-    max-width: 600px;
+    max-width: 450px;
     margin: 0 auto;
     background-color: #fbeaab;
   }
