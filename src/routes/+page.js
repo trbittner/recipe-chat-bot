@@ -15,9 +15,17 @@ export async function load() {
         'ingredients': recipe.ingredients.join(' '),
         'tags': recipe.tags,
       });
-    },this)
-  })
+    },this);
+  });
 
-  const randomRecipe = Math.floor(Math.random() * recipeObj.data.length)
-  return {"idx":idx,"randomRecipe":recipeObj.data[randomRecipe]};
+  let categories = [];
+  let recipeLinks = [];
+
+  recipeObj.data.forEach(function (recipe) {
+    categories = [...new Set([...categories,...recipe.tags.split(" ")])].sort()
+    recipeLinks = [...recipeLinks,{'link':`/recipes/${recipe.id}`,'name':recipe.name}]
+  });
+
+  const randomRecipe = Math.floor(Math.random() * recipeObj.data.length);
+  return {"idx":idx,"randomRecipe":recipeObj.data[randomRecipe],'categories':categories,'links':recipeLinks};
 }
