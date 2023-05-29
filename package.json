@@ -17,6 +17,8 @@
   "dependencies": {
     "lunr": "^2.3.9",
     "markdown-json": "^1.6.1",
-    "node": "^20.1.0"
+    "node": "^20.1.0",
+    "sass": "^1.62.1",
+    "svelte-preprocess": "^5.0.4"
   }
 }

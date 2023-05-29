@@ -21,4 +21,5 @@ already spent 4-6 hours on it already).
 * [This](https://svelte.dev/repl/149d2f3766e9425f8fe39207cad5ac13?version=3.31.0) may solve my input problems.
   * Actually I didn't need it, because I had an error blocking the input update, which masked the bug I was trying to fix.  Turns out the component binding worked as expected the first time out.
   * While exploring ideas for layouts that leverage better design skills than mine (i.e. a computer's), I found [this site for logo design](https://app.logo.com/).  It doesn't seem to have the - "you can design a logo but can't use it until you pay" bullshit attached to it.
+* [This is an extremely well written tutorial on sveltekit, SASS, and markdown support](https://joshcollinsworth.com/blog/build-static-sveltekit-markdown-blog).
   
